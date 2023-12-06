@@ -1,0 +1,14 @@
+name: Test Env
+
+on: [push]
+
+jobs:
+  log-env:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Log env variable
+        run: echo "Value of TEST_SECRET is ${{ secrets.TEST_SECRET }}"
