@@ -1,0 +1,22 @@
+name: Node.js Workflow
+
+on: [push]
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    environment: dev # Specify your environment here
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14" # or the version you're using
+
+      - name: Run Node.js script
+        run: |
+          node your-script.js
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }} # Use the secret from the 'dev' environment
