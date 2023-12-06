@@ -5,7 +5,7 @@ on: [push]
 jobs:
   run-script:
     runs-on: ubuntu-latest
-    environment: dev # Specify your environment here
+    environment: dev # Your environment with the MongoDB secret
 
     steps:
       - uses: actions/checkout@v2
@@ -13,12 +13,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "14" # or the version you're using
+          node-version: "14" # Replace with your Node.js version
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Run Node.js script
         run: |
-          npm i mongoose
-          node index.js
-
+          node your-script.js
         env:
-          MY_SECRET: ${{ secrets.MY_SECRET }} # Use the secret from the 'dev' environment
+          MY_SECRET: ${{ secrets.MY_SECRET }} # Your MongoDB connection string secret
