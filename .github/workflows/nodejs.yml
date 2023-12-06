@@ -17,6 +17,6 @@ jobs:
 
       - name: Run Node.js script
         run: |
-          node your-script.js
+          node index.js
         env:
           MY_SECRET: ${{ secrets.MY_SECRET }} # Use the secret from the 'dev' environment
