@@ -17,6 +17,8 @@ jobs:
 
       - name: Run Node.js script
         run: |
+          npm i mongoose
           node index.js
+
         env:
           MY_SECRET: ${{ secrets.MY_SECRET }} # Use the secret from the 'dev' environment
